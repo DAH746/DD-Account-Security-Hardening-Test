@@ -52,8 +52,11 @@ The structure of the documentation of the code will be with the use of resource 
 
 1. provider "aws"
 2. resource "aws_default_vpc" "default"
+
     - This is executed first as there should not be access to and from the internet at anypoint, so this should be carried out first as there could be connections made during the period where all of the infrastructure is being set up. 
+    
     - Due to the nature of the "aws_default_vpc", as terraform does not create it, and instead 'adopts' it, you cannot directly delete a default vpc using terraform at this time. (https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_vpc)
+    
     - As there are only 3 (4 including tags) options available within this resource (enable_dns_support, enable_dns_hostnames and enable_classiclink), two of which are related to the accessibility of DNS within the VPC (enable_dns_support and enable_dns_hostnames), and one which is already set to false by default (enable_dns_hostnames), I thought it would be best to set "enable_dns_support" to false (default=true). This way there will be DNS resolving issues when traffic comes through. This is not a great idea as traffic should not be able to get as far as it will with this solution, but it is the only attempt I could make for part 7 of the test. Furthermore, this is only for one default vpc, not the default vpcs in every region.
 
 3. resource "aws_s3_bucket" "logs_for_cloudtrail_storage_bucket"
