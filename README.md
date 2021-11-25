@@ -20,19 +20,20 @@ The purpose of this task was to demonstrate my ability to design, build and test
     - Ensure controls are in place to block public access to the bucket.
     - Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket.
     - Ensure CloudTrail trails are integrated with CloudWatch Logs.
-- To send an email to a configured email address when any of the following events are logged within CloudTrail:
 
-4. Unauthorized API calls
+To send an email to a configured email address when any of the following events are logged within CloudTrail:
 
-5. Management Console sign-in without MFA
+	3. Unauthorized API calls
 
-6. Usage of the "root" account
+	4. Management Console sign-in without MFA
 
-7. Remove the default VPC within every region of the account.
+	5. Usage of the "root" account
+
+6. Remove the default VPC within every region of the account.
 
 # Documentation
 
-## Preface
+## Preface / Prerequisites
 
 In order to run this project, Terraform is required. There is a list of the packages that were used when developing this project, these can be found in “dependency-list.txt”. If you would like to replicate the exact environment then, with a packet manager of your choice, install the packages that are within this file.
 
